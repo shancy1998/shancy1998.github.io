@@ -11,6 +11,7 @@ header {
   text-align: center;
   padding: 40px;
   color: #00bfff;
+  animation: fadeIn 2s ease-in-out;
 }
 
 h1, h2 {
@@ -27,12 +28,28 @@ h1, h2 {
   margin: 10px 0;
   padding: 15px;
   border-left: 5px solid #00bfff;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.services li:hover {
+  transform: scale(1.05);
+  background: #262626;
+}
+
+.services i {
+  color: #00ff99;
+  margin-right: 10px;
 }
 
 .contact a {
   color: #00ff99;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s;
+}
+
+.contact a:hover {
+  color: #ffcc00;
 }
 
 footer {
@@ -40,4 +57,9 @@ footer {
   text-align: center;
   padding: 20px;
   color: #888888;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
