@@ -14,6 +14,21 @@ if (serviceSelect && requestedService) {
 
     if (matchingOption) {
         serviceSelect.value = matchingOption.value;
+        Array.from(serviceSelect.options).forEach(option => {
+            option.hidden = option !== matchingOption;
+        });
+        document.body.classList.add(`quote-category-${matchingOption.value.toLowerCase().replaceAll(' ', '-')}`);
+
+        const quoteHeading = document.querySelector('.quote-copy h1');
+        const quoteIntro = document.querySelector('.quote-intro');
+
+        if (quoteHeading) {
+            quoteHeading.textContent = `${matchingOption.text} quote request`;
+        }
+
+        if (quoteIntro) {
+            quoteIntro.textContent = `Tell us about your ${matchingOption.text.toLowerCase()} requirement. Our team will recommend the right solution for your property and budget.`;
+        }
     }
 }
 
