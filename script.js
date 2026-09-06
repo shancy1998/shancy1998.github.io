@@ -6,6 +6,17 @@ if (document.getElementById('year')) {
     document.getElementById('year').textContent = new Date().getFullYear();
 }
 
+const serviceSelect = document.querySelector('select[name="service"]');
+const requestedService = new URLSearchParams(window.location.search).get('service');
+
+if (serviceSelect && requestedService) {
+    const matchingOption = Array.from(serviceSelect.options).find(option => option.value === requestedService || option.text === requestedService);
+
+    if (matchingOption) {
+        serviceSelect.value = matchingOption.value;
+    }
+}
+
 if (navToggle && topbar) {
     navToggle.addEventListener('click', () => {
         const isOpen = topbar.classList.toggle('open');

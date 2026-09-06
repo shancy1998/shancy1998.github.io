@@ -278,6 +278,7 @@ button {
 }
 
 .card {
+    display: block;
     background: rgba(17, 28, 42, 0.9);
     border: 1px solid var(--line);
     border-radius: 22px;
