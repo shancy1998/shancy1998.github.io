@@ -58,7 +58,7 @@
                     <span class="mini-label">Quote Request</span>
                 </div>
 
-                <form action="https://formsubmit.co/Shyams3946@gmail.com" method="POST" class="quote-form">
+                <form action="https://formsubmit.co/Shyams3946@gmail.com" method="POST" enctype="multipart/form-data" class="quote-form">
                     <input type="hidden" name="_subject" value="New CCTV Quote Request">
                     <input type="hidden" name="_next" value="https://shancy1998.github.io/quote-success.html">
                     <input type="hidden" name="_captcha" value="false">
@@ -97,10 +97,16 @@
                             <select name="service" required>
                                 <option value="">Select</option>
                                 <option>CCTV Camera</option>
+                                <option>NVR DVR Systems</option>
+                                <option>IP Cameras</option>
+                                <option>Analog Cameras</option>
                                 <option>Fire Alarm</option>
                                 <option>Access Control</option>
                                 <option>Biometric Attendance</option>
                                 <option>EM Locks</option>
+                                <option>Strike Locks</option>
+                                <option>Theft Alarm</option>
+                                <option>Intrusion Detection</option>
                                 <option>Burglar Alarm</option>
                                 <option>Video Door Phone</option>
                             </select>
@@ -109,6 +115,12 @@
                         <label class="field full-width">
                             <span>Project Details</span>
                             <textarea name="message" rows="5" placeholder="Describe your requirement, quantity, location, and any important details..." required></textarea>
+                        </label>
+
+                        <label class="field full-width">
+                            <span>Attachment (optional)</span>
+                            <input type="file" name="attachment" accept="image/*,.pdf,.doc,.docx">
+                            <small>Upload a site photo, layout, or requirement document.</small>
                         </label>
                     </div>
 
