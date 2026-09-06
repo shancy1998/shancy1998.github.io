@@ -1,60 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Request a Quote</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .form-container {
-      background: #fff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      width: 350px;
-    }
-    h2 {
-      text-align: center;
-      color: #3498db;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #3498db;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #2980b9;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote | Shancy Security Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="form-container">
-    <h2>Request a Quote</h2>
-    <form action="quote-success.html" method="get">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Phone Number" required>
-      <textarea name="message" rows="4" placeholder="Describe your requirement..." required></textarea>
-      <button type="submit">Submit Request</button>
-    </form>
-  </div>
+
+<body class="quote-body">
+    <header class="page-header site-header">
+        <nav class="topbar container">
+            <a href="index.html" class="brand" aria-label="Shancy Security Systems home">
+                <span class="brand-mark">S</span>
+                <span>Shancy Security</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">Menu</button>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="quote-page container">
+        <section class="quote-shell">
+            <div class="quote-copy">
+                <span class="eyebrow accent">Get a Secure Solution</span>
+                <h1>Request your custom security quote</h1>
+                <p>Tell us about your property and security needs. Our team will recommend the right CCTV, access control, alarm, or attendance system based on your space and budget.</p>
+
+                <div class="quote-benefits">
+                    <div>
+                        <strong>24/7</strong>
+                        <span>Support</span>
+                    </div>
+                    <div>
+                        <strong>500+</strong>
+                        <span>Installations</span>
+                    </div>
+                    <div>
+                        <strong>Free</strong>
+                        <span>Consultation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quote-card">
+                <div class="card-topline">
+                    <span class="status-badge">Fast Response</span>
+                    <span class="mini-label">Quote Request</span>
+                </div>
+
+                <form action="quote-success.html" method="get" class="quote-form">
+                    <div class="form-grid">
+                        <label class="field">
+                            <span>Full Name</span>
+                            <input type="text" name="name" placeholder="Your name" required>
+                        </label>
+
+                        <label class="field">
+                            <span>Phone Number</span>
+                            <input type="tel" name="phone" placeholder="+91 98765 43210" required>
+                        </label>
+
+                        <label class="field full-width">
+                            <span>Email Address</span>
+                            <input type="email" name="email" placeholder="you@example.com" required>
+                        </label>
+
+                        <label class="field">
+                            <span>Property Type</span>
+                            <select name="property" required>
+                                <option value="">Select</option>
+                                <option>Home</option>
+                                <option>Office</option>
+                                <option>Shop</option>
+                                <option>Factory</option>
+                                <option>Apartment</option>
+                                <option>Other</option>
+                            </select>
+                        </label>
+
+                        <label class="field">
+                            <span>Service Needed</span>
+                            <select name="service" required>
+                                <option value="">Select</option>
+                                <option>CCTV Camera</option>
+                                <option>Fire Alarm</option>
+                                <option>Access Control</option>
+                                <option>Biometric Attendance</option>
+                                <option>EM Locks</option>
+                                <option>Burglar Alarm</option>
+                                <option>Video Door Phone</option>
+                            </select>
+                        </label>
+
+                        <label class="field full-width">
+                            <span>Project Details</span>
+                            <textarea name="message" rows="5" placeholder="Describe your requirement, quantity, location, and any important details..." required></textarea>
+                        </label>
+                    </div>
+
+                    <div class="check-row">
+                        <label>
+                            <input type="checkbox" name="callback" checked>
+                            <span>Yes, contact me with a free consultation.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="cta primary quote-submit">Submit Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> Shancy Security Systems. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
