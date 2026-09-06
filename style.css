@@ -292,6 +292,17 @@ button {
     border-color: rgba(45, 212, 191, 0.4);
 }
 
+.service-image {
+    width: calc(100% + 40px);
+    height: 150px;
+    display: block;
+    background: linear-gradient(135deg, #163447, #0b202d);
+    object-fit: cover;
+    margin: -26px -20px 20px;
+    border-radius: 22px 22px 0 0;
+    opacity: 0.88;
+}
+
 .card-icon {
     width: 56px;
     height: 56px;
