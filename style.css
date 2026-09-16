@@ -886,3 +886,128 @@ footer {
     color: var(--muted);
     font-size: 0.78rem;
 }
+
+.admin-page {
+    min-height: 100vh;
+    padding: 72px 20px;
+    background: linear-gradient(180deg, #08111f 0%, #0d1729 30%, #091323 100%);
+}
+
+.admin-shell {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.admin-card {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(20, 42, 69, 0.12);
+    border-radius: 10px;
+    padding: 32px;
+    box-shadow: 0 18px 48px rgba(16, 29, 49, 0.12);
+    color: #142a45;
+}
+
+.admin-card h1 {
+    margin-top: 0;
+    color: #142a45;
+}
+
+.admin-form {
+    display: grid;
+    gap: 16px;
+}
+
+.admin-form label {
+    display: grid;
+    gap: 7px;
+    font-weight: 600;
+    color: #142a45;
+}
+
+.admin-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #c8d2df;
+    border-radius: 5px;
+    font: inherit;
+    color: #142a45;
+}
+
+.admin-form input:focus {
+    outline: 2px solid #e6a23c;
+    outline-offset: 1px;
+}
+
+.admin-message {
+    min-height: 24px;
+    color: #8b2f2f;
+    margin-top: 12px;
+}
+
+.admin-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.admin-upload {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.admin-upload input {
+    padding: 12px;
+    border: 1px dashed #9aabba;
+    border-radius: 5px;
+    background: #f5f8fb;
+    color: #142a45;
+}
+
+.admin-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+}
+
+.admin-image {
+    overflow: hidden;
+    border: 1px solid #d9e0e8;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.admin-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.admin-image-body {
+    display: grid;
+    gap: 8px;
+    padding: 12px;
+}
+
+.admin-image-name {
+    overflow: hidden;
+    color: #40546b;
+    font-size: 0.85rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.admin-hidden {
+    display: none;
+}
+
+@media (max-width: 560px) {
+    .admin-card {
+        padding: 22px;
+    }
+}
