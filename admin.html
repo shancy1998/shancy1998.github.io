@@ -31,6 +31,26 @@
             color: #142a45;
         }
 
+        .admin-card,
+        .admin-card p,
+        .admin-card label,
+        .admin-card small,
+        .admin-card figcaption {
+            color: #142a45;
+        }
+
+        .admin-card .eyebrow.accent {
+            color: #12645e;
+            background: #e9f8f5;
+            border-color: #b9e8df;
+        }
+
+        .admin-card a:not(.cta) {
+            color: #155e9a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
         .admin-card h1 {
             margin-top: 0;
             color: #142a45;
@@ -92,6 +112,16 @@
 
         .admin-toolbar .cta.secondary:hover {
             background: #203b5b;
+        }
+
+        .admin-upload-actions .cta.secondary {
+            border: 1px solid #9aabba;
+            background: #fff;
+            color: #142a45;
+        }
+
+        .admin-upload-actions .cta.secondary:hover:not(:disabled) {
+            background: #f5f8fb;
         }
 
         .admin-dropzone {
