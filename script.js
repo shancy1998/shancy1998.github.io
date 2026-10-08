@@ -3,7 +3,7 @@ const topbar = document.querySelector('.topbar');
 const navLinks = document.querySelectorAll('.nav-links a');
 const managedImageCards = document.querySelectorAll('[data-admin-image]');
 
-managedImageCards.forEach(card => {
+function loadManagedImage(card) {
     const imageKey = card.dataset.adminImage;
     const imageUrl = `https://bgcsmwrqkujkgmujobxn.supabase.co/storage/v1/object/public/website-images/homepage/${imageKey}?v=${Date.now()}`;
     const imageTest = new Image();
@@ -18,7 +18,22 @@ managedImageCards.forEach(card => {
     };
 
     imageTest.src = imageUrl;
-});
+}
+
+if ('IntersectionObserver' in window) {
+    const managedImageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadManagedImage(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    managedImageCards.forEach(card => managedImageObserver.observe(card));
+} else {
+    managedImageCards.forEach(loadManagedImage);
+}
 
 if (document.getElementById('year')) {
     document.getElementById('year').textContent = new Date().getFullYear();

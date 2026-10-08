@@ -1,3 +1,5 @@
+// Legacy endpoint source; quote.html currently submits directly to FormSubmit.
+// This script is not connected to the website form unless its deployment URL is added there.
 const RECIPIENT_EMAIL = 'Shyams3946@gmail.com';
 const SUCCESS_PAGE = 'https://shancy1998.github.io/quote-success.html';
 
