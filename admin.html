@@ -77,52 +77,56 @@
             margin-bottom: 24px;
         }
 
-        .admin-upload {
+        .admin-dropzone {
             display: grid;
-            gap: 14px;
-            margin-bottom: 30px;
-        }
-
-        .admin-upload input {
-            padding: 12px;
-            border: 1px dashed #9aabba;
-            border-radius: 5px;
+            min-height: 190px;
+            place-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 24px;
+            border: 2px dashed #9aabba;
+            border-radius: 8px;
             background: #f5f8fb;
-            color: #142a45;
-        }
-
-        .admin-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-            gap: 16px;
-        }
-
-        .admin-image {
-            overflow: hidden;
-            border: 1px solid #d9e0e8;
-            border-radius: 6px;
-            background: #fff;
-        }
-
-        .admin-image img {
-            display: block;
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-        }
-
-        .admin-image-body {
-            display: grid;
-            gap: 8px;
-            padding: 12px;
-        }
-
-        .admin-image-name {
-            overflow: hidden;
             color: #40546b;
-            font-size: 0.85rem;
-            text-overflow: ellipsis;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 160ms ease, background 160ms ease;
+        }
+
+        .admin-dropzone:hover,
+        .admin-dropzone.drag-over {
+            border-color: #e6a23c;
+            background: #fffaf0;
+        }
+
+        .admin-dropzone strong {
+            color: #142a45;
+            font-size: 1.1rem;
+        }
+
+        .admin-dropzone-icon {
+            color: #d18a24;
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .admin-dropzone input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
             white-space: nowrap;
+        }
+
+        .admin-dropzone:focus-within {
+            outline: 2px solid #e6a23c;
+            outline-offset: 3px;
+        }
+
+        .admin-dropzone[aria-disabled="true"] {
+            cursor: wait;
+            opacity: 0.65;
         }
 
         .admin-hidden {
@@ -163,20 +167,21 @@
         <section class="admin-card admin-hidden" id="dashboard-panel">
             <div class="admin-toolbar">
                 <div>
-                    <span class="eyebrow accent">Image Manager</span>
-                    <h1>Website Images</h1>
+                    <span class="eyebrow accent">Quick Upload</span>
+                    <h1>Upload Images</h1>
                 </div>
                 <button class="cta secondary" id="logout-button" type="button">Log out</button>
             </div>
 
-            <form class="admin-upload" id="upload-form">
-                <label for="image-file">Upload a new image</label>
-                <input type="file" id="image-file" accept="image/*" required>
-                <button class="cta primary" type="submit">Upload image</button>
-            </form>
+            <label class="admin-dropzone" id="upload-dropzone" for="image-file">
+                <span class="admin-dropzone-icon" aria-hidden="true">↑</span>
+                <strong>Drop images here</strong>
+                <span>or click to choose from your device</span>
+                <small>Image files only · You can select multiple images</small>
+                <input type="file" id="image-file" accept="image/*" multiple>
+            </label>
 
             <p class="admin-message" id="dashboard-message" role="status"></p>
-            <div class="admin-gallery" id="image-gallery"></div>
         </section>
     </main>
 
