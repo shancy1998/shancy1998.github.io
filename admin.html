@@ -129,6 +129,55 @@
             opacity: 0.65;
         }
 
+        .admin-target-select {
+            width: 100%;
+            box-sizing: border-box;
+            margin: 8px 0 20px;
+            padding: 13px 14px;
+            border: 1px solid #c8d2df;
+            border-radius: 5px;
+            background: #fff;
+            color: #142a45;
+            font: inherit;
+        }
+
+        .admin-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .admin-preview-card {
+            display: grid;
+            gap: 8px;
+            margin: 0;
+            color: #40546b;
+            font-size: 0.9rem;
+        }
+
+        .admin-preview-card img {
+            display: block;
+            width: 100%;
+            max-height: 240px;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+            border: 1px solid #d9e0e8;
+            border-radius: 6px;
+            background: #f5f8fb;
+        }
+
+        .admin-upload-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .admin-upload-actions button:disabled {
+            cursor: not-allowed;
+            opacity: 0.55;
+        }
+
         .admin-hidden {
             display: none;
         }
@@ -173,13 +222,44 @@
                 <button class="cta secondary" id="logout-button" type="button">Log out</button>
             </div>
 
-            <label class="admin-dropzone" id="upload-dropzone" for="image-file">
-                <span class="admin-dropzone-icon" aria-hidden="true">↑</span>
-                <strong>Drop images here</strong>
-                <span>or click to choose from your device</span>
-                <small>Image files only · You can select multiple images</small>
-                <input type="file" id="image-file" accept="image/*" multiple>
-            </label>
+            <form id="upload-form">
+                <label for="image-target">Choose where the image should appear</label>
+                <select class="admin-target-select" id="image-target">
+                    <option value="cctv-camera">CCTV Camera Systems</option>
+                    <option value="fire-alarm">Fire Alarm Systems</option>
+                    <option value="access-control">Access Control</option>
+                    <option value="em-locks">EM &amp; Magnetic Locks</option>
+                    <option value="electric-strike-locks">Electric Strike Locks</option>
+                    <option value="biometric-attendance">Biometric Attendance</option>
+                    <option value="theft-alarm">Theft Alarm Systems</option>
+                    <option value="intrusion-detection">Intrusion Detection</option>
+                    <option value="video-door-phones">Video Door Phones</option>
+                </select>
+
+                <div class="admin-preview-grid">
+                    <figure class="admin-preview-card admin-hidden" id="current-image-panel">
+                        <img id="current-image" alt="Current image for selected website section">
+                        <figcaption>Current image on the website</figcaption>
+                    </figure>
+                    <figure class="admin-preview-card admin-hidden" id="selected-image-panel">
+                        <img id="selected-image" alt="Preview of the image ready to upload">
+                        <figcaption id="selected-image-name"></figcaption>
+                    </figure>
+                </div>
+
+                <label class="admin-dropzone" id="upload-dropzone" for="image-file">
+                    <span class="admin-dropzone-icon" aria-hidden="true">↑</span>
+                    <strong>Drop one image here</strong>
+                    <span>or click to choose from your device</span>
+                    <small>Image files only</small>
+                    <input type="file" id="image-file" accept="image/*">
+                </label>
+
+                <div class="admin-upload-actions">
+                    <button class="cta primary" id="save-image-button" type="submit" disabled>Save / Replace Image</button>
+                    <button class="cta secondary" id="remove-image-button" type="button" disabled>Remove Current Image</button>
+                </div>
+            </form>
 
             <p class="admin-message" id="dashboard-message" role="status"></p>
         </section>

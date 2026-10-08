@@ -1,6 +1,24 @@
 const navToggle = document.querySelector('.nav-toggle');
 const topbar = document.querySelector('.topbar');
 const navLinks = document.querySelectorAll('.nav-links a');
+const managedImageCards = document.querySelectorAll('[data-admin-image]');
+
+managedImageCards.forEach(card => {
+    const imageKey = card.dataset.adminImage;
+    const imageUrl = `https://bgcsmwrqkujkgmujobxn.supabase.co/storage/v1/object/public/website-images/homepage/${imageKey}?v=${Date.now()}`;
+    const imageTest = new Image();
+
+    imageTest.onload = () => {
+        const serviceImage = card.querySelector('.service-image');
+        if (serviceImage) {
+            serviceImage.src = imageUrl;
+        } else {
+            card.style.backgroundImage = `linear-gradient(135deg, rgba(6, 14, 24, 0.78), rgba(15, 27, 39, 0.5)), url("${imageUrl}")`;
+        }
+    };
+
+    imageTest.src = imageUrl;
+});
 
 if (document.getElementById('year')) {
     document.getElementById('year').textContent = new Date().getFullYear();
